@@ -1,23 +1,42 @@
 const UserModel = require('../models/user-model');
-const RoleModel = require('../models/roles-model');
+const RoleModel = require('../models/roles-model')
+const DeliveryModel = require('../models/delivery-model');
+const OrderModel = require('../models/order-model');
+const PaymentModel = require('../models/payment-model');
+const ProductModel = require('../models/product-model');
 const bcrypt = require('bcrypt');
 const uuid = require('uuid');
 const mailService = require('./mail-service');
 const tokenService = require('./token-service');
 const UserDto = require('../dtos/user-dto')
 const ApiError = require('../exceptions/api-error');
+const multer = require('multer');
+
+/*
+const storage = multer.diskStorage({
+    destination: (req, file, callback) => {
+        callback(null, "./client/public/uploads/");
+    },
+    filename: ( req, file, callback) => {
+        callback(null, file.originalname);
+    }
+})
+const upload = multer({storage: storage});
+*/
 
 class UserService {
     async registration(email, password){
         const candidate = await UserModel.findOne({email})
         if(candidate){
             throw ApiError.BadRequest(`Пользователь с почтовым адресом ${email} уже существует`)
-            //throw new Error(`Пользователь с почтовым адресом ${email} уже существует`)
         }
         const hashPassword = await bcrypt.hash(password, 3);
         const activationLink = uuid.v4();
 
-        const user = await UserModel.create({email, password: hashPassword, activationLink})
+        const userRole = await RoleModel.findOne({value: "USER"});
+
+        const user = await UserModel.create({email, password: hashPassword, activationLink, roles: [userRole.value]});
+
         await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`);
 
         const userDto = new UserDto(user); //id, email, isActivated
@@ -85,6 +104,16 @@ class UserService {
     async getAllUsers(){
         const users = await UserModel.find();
         return users;
+    }
+
+    async postProducts(name, price, description){
+        const prod = await ProductModel.findOne({name})
+        if(prod){
+            throw ApiError.BadRequest(`Продукт ${name} уже существует`)
+            //throw new Error(`Пользователь с почтовым адресом ${email} уже существует`)
+        }
+        const product = await ProductModel.create({name, price, description})
+        return {name}
     }
 }
 

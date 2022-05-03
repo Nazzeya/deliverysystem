@@ -1,6 +1,7 @@
 const userService = require('../service/user-service');
 const {validationResult} = require('express-validator');
 const ApiError = require('../exceptions/api-error');
+const multer = require("multer");
 
 class UserController {
     async registration(req, res, next){
@@ -69,6 +70,37 @@ class UserController {
         try {
             const users = await userService.getAllUsers()
             return res.json(users);
+        } catch (e) {
+            next(e);
+        }
+    }
+
+    async postProducts(req, res, next) {
+        try{
+            const {name, price, description} = req.body;
+            const productData = await userService.postProducts(name, price, description);
+            return res.json(productData);
+            /*const storage = multer.diskStorage({
+                destination: (req, file, callback) => {
+                    callback(null, "./client/public/uploads/");
+                },
+                filename: ( req, file, callback) => {
+                    callback(null, file.originalname);
+                }
+            })
+            const upload = multer({storage: storage});
+
+            const products = await userService.postProducts(upload.single("productImage"));*///добавить надо что-то...
+
+            //return res.json(products);
+        } catch (e) {
+            next(e);
+        }
+    }
+
+    async getProducts(req, res, next) {
+        try{
+
         } catch (e) {
             next(e);
         }

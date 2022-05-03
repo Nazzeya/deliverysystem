@@ -1,0 +1,126 @@
+.App {
+  text-align: center;
+}
+
+body{
+  margin: 0;
+  background-color: #1B1A17;
+  font-family: monospace;
+}
+
+.nav {
+  position: relative;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.nav_btns{
+  width: 100%;
+  text-align: center;
+}
+
+.nav_btns a{
+  margin: 0 10px;
+  text-decoration: none;
+  color: #8B9A46;
+  font-weight: bold;
+}
+
+.cart_btn{
+  position: absolute;
+  right: 50px;
+}
+
+.cart_btn a{
+  background-color: grey;
+  border: 2px solid #8B9A46;
+  width: 50px;
+  text-align: center;
+  padding: 12px 15px 0px 15px;
+}
+
+.cart_btn img{
+  height: 23px;
+}
+
+.container{
+  padding: 100px 5px;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main_form {
+  background-image: url(imgs/pokey.png);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 500px;
+}
+
+.reg_form{
+  width: 450px;
+  margin-left: auto;
+}
+
+.reg_form h2{
+  color: #8B9A46;
+  font-size: 22px;
+}
+
+.reg_form p{
+  color: #8B9A46;
+  font-size: 14px;
+  margin: 0;
+}
+
+.input_form {
+  margin: 15px 0;
+}
+
+.input_form input{
+  padding: 5px 3px;
+  background-color: #9D9D9D;
+  border: 2px solid #8B9A46;
+  color: white;
+  width: 100%;
+  font-size: 18px;
+}
+
+.input_form select{
+  padding: 5px 3px;
+  background-color: #9D9D9D;
+  border: 2px solid #8B9A46;
+  color: white;
+  width: 102.225%;
+  font-size: 18px;
+}
+
+.check input {
+  margin-top: 2px;
+}
+
+.check label {
+  color: white;
+  user-select: none;
+  font-size: 16px;
+}
+
+.reg_btn{
+  margin-top: 25px;
+}
+
+.reg_btn a{
+  padding: 10px 50px;
+  background-color: #8A8635;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  user-select: none;
+}
+
+.footer{
+  background-color: black;
+  margin-top: auto;
+}
