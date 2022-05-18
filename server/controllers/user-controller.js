@@ -3,6 +3,8 @@ const { validationResult } = require('express-validator');
 const ApiError = require('../exceptions/api-error');
 const multer = require("multer");
 const upload = require("../middlewares/upload");
+const MongoClient = require('mongodb').MongoClient;
+
 
 class UserController {
     async registration(req, res, next) {
@@ -117,7 +119,15 @@ class UserController {
 
     async getProducts(req, res, next) {
         try {
-
+            const mongoClient = new MongoClient('mongodb://localhost:27017');
+            await mongoClient.connect()
+            const db = mongoClient.db('myFirstDataBase')
+            const product = await db.collection('products').find().toArray()
+            // log
+            return res.status(200).send({
+                product: product,
+            });
+            // console.log('tut');
         } catch (e) {
             next(e);
         }
