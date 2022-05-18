@@ -25,12 +25,12 @@ export class LoginPageComponent implements OnInit {
 
     const result = (await axios({
       method: 'post',
-      url: `http://localhost:3000/auth/login`,
+      url: `http://localhost:5000/api/login`,
       data: user
     })).data;
     console.log(result);
     this.authService.setUser({ user: result });
-    this.router.navigate(['feed']);
+    // this.router.navigate(['feed']);
 
 
 

@@ -24,7 +24,7 @@ export class RegisterPageComponent implements OnInit {
 
     const result = (await axios({
       method: 'post',
-      url: `http://localhost:3000/auth/register`,
+      url: `http://localhost:5000/api/registration`,
       data: user
     })).data;
 
