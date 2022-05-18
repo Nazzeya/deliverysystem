@@ -55,6 +55,10 @@ import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FeedComponent } from './feed/feed.component';
+import { CardComponent } from './card/card.component';
+import { ConfirmComponent } from './confirm/confirm.component';
+import { ThanksComponent } from './thanks/thanks.component';
+import { DetaeiledProductComponent } from './detaeiled-product/detaeiled-product.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +67,11 @@ import { FeedComponent } from './feed/feed.component';
     ProfileComponent,
     RegisterPageComponent,
     LoginPageComponent,
-    FeedComponent
+    FeedComponent,
+    CardComponent,
+    ConfirmComponent,
+    ThanksComponent,
+    DetaeiledProductComponent
   ],
   imports: [
     BrowserModule,
