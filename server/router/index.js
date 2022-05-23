@@ -7,9 +7,9 @@ const authMiddleware = require('../middlewares/auth-middleware');
 const roleMiddleware = require('../middlewares/role-middlware');
 
 router.post('/registration',
-    body('email').isEmail(),
-    body('password').isLength({ min: 3, max: 32 }),
-    userController.registration
+  body('email').isEmail(),
+  body('password').isLength({ min: 3, max: 32 }),
+  userController.registration
 );
 router.post('/login', userController.login);
 router.post('/logout', userController.logout);
@@ -21,5 +21,9 @@ router.get('/products', userController.getProducts);
 
 router.get('/getListFiles', uploadController.getListFiles);
 router.get('/download', uploadController.download);
+
+router.get('/getBusket', userController.getBusket);
+router.post('/updateBusket', userController.updateBusket);
+router.post('/cleanBusket', userController.cleanBusket);
 
 module.exports = router
