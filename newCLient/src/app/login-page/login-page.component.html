@@ -1,4 +1,134 @@
-<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Авторизация</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+    <link rel="stylesheet" href="../app.component.css">
+    <link rel="stylesheet" href="login-page.component.css">
+  </head>
+  <body>
+    <div class="page">
+      <div class="nav">
+        <div class="nav_btns">
+          <a href="#">Доставка</a>
+          <a href="#">Контакты</a>
+        </div>
+
+        <div class="cart_btn">
+          <a href="#"><img src="../imgs/cart.png" alt=""></a>
+        </div>
+      </div>
+
+    <div class="container">
+      <div class="main_form">
+
+      <div class="reg_form">
+        <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+            <mat-card class="box">
+                <mat-card-header>
+                    <mat-card-title>Sign In</mat-card-title>
+                </mat-card-header>
+
+              <form id="login_form">
+                <mat-card-content>
+                  <div class="input_form">
+                    <mat-form-field class="example-full-width">
+                      <p>Email</p>
+                        <input matInput placeholder="Email" [(ngModel)]="user.email">
+                    </mat-form-field>
+                  </div>
+
+                    <div class="input_form">
+                      <mat-form-field class="example-full-width">
+                        <p>Пароль</p>
+                          <input matInput placeholder="Пароль" [(ngModel)]="user.password">
+                      </mat-form-field>
+                    </div>
+                </mat-card-content>
+              </form>
+
+              <div class="reg_btn">
+                <button mat-stroked-button color="accent" class="btn-block" (click)="submit(user)">Логин</button>
+                <a href="register.html">Регистрация</a>
+              </div>
+            </mat-card>
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+        <!-- <div class="reg_form">
+          <h2>Авторизация</h2>
+
+          <form id="login_form">
+          <div class="input_form">
+            <p>Email</p>
+            <input type="email" name="" placeholder="example@mail.ru" id="email">
+          </div>
+
+          <div class="input_form">
+            <p>Пароль</p>
+            <input type="password" name="" placeholder="Пароль" id="password1">
+          </div>
+
+          <div class="reg_btn">
+            <button>Войти</button>
+          </div>
+          </form>
+        </div> -->
+      </div>
+    </div>
+
+    <div class="footer">
+      <div style="padding-top: 20px;" class="container">
+        <div class="contacts">
+          <h3 style="text-align: center">Контакты:</h3>
+
+          <div class="contact_infos">
+            <div class="contact_info">
+              <h3>Контактный телефон:</h3>
+              <p>+77058366547</p>
+            </div>
+            <div class="contact_info">
+              <h3>Email:</h3>
+              <p>zhakeevsultanbek@mail.ru</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="apps">
+          <div class="icon">
+            <a href=""><img src="../imgs/whatsapp.png" alt=""></a>
+          </div>
+          <div class="icon">
+            <a href=""><img src="../imgs/instagram.png" alt=""></a>
+          </div>
+          <div class="icon">
+            <a href=""><img src="../imgs/telegram.png" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="js/login.js">
+
+  </script>
+</html>
+
+
+
+<!-- <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
 
     <mat-card class="box">
         <mat-card-header>
@@ -17,4 +147,4 @@
         <button mat-stroked-button color="accent" class="btn-block" (click)="submit(user)">Sign-in</button>
     </mat-card>
 
-</div>
+</div> -->
