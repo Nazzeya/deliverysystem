@@ -1,27 +1,112 @@
-<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
-    <mat-card class="box">
-        <mat-card-header>
-            <mat-card-title>Register</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Username" [(ngModel)]="user.username">
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Name" [(ngModel)]="user.name">
-            </mat-form-field>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Регистрация</title>
 
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Email" [(ngModel)]="user.email">
-            </mat-form-field>
+  <link rel="stylesheet" href="register-page.component.css">
+  <link rel="stylesheet" href="../app.component.css">
 
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Password" [(ngModel)]="user.password">
-            </mat-form-field>
+</head>
+<body>
+  <div class="page">
+    <div class="nav">
+      <div class="nav_btns">
+        <a href="#">Доставка</a>
+        <a href="#">Контакты</a>
+      </div>
 
-        </mat-card-content>
+      <div class="cart_btn">
+        <a href="#"><img src="../imgs/cart.png" alt=""></a>
+      </div>
+    </div>
 
-        <button mat-stroked-button color="accent" class="btn-block" (click)="submit(user)">Register</button>
+  <div class="container">
+    <div class="main_form">
 
-    </mat-card>
-</div>
+    <div class="reg_form">
+      <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+          <mat-card class="box">
+              <mat-card-header>
+                  <mat-card-title>Register</mat-card-title>
+              </mat-card-header>
+
+          <form id="register_form">
+            <mat-card-content>
+              <div class="input_form">
+                <mat-form-field class="example-full-width">
+                  <p>Ваше имя</p>
+                    <input matInput placeholder="Имя" [(ngModel)]="user.name">
+                </mat-form-field>
+              </div>
+
+              <div class="input_form">
+                <mat-form-field class="example-full-width">
+                  <p>Email</p>
+                    <input matInput placeholder="Email" [(ngModel)]="user.email">
+                </mat-form-field>
+              </div>
+
+              <div class="input_form">
+                <mat-form-field class="example-full-width">
+                  <p>Пароль</p>
+                    <input matInput placeholder="Пароль" [(ngModel)]="user.password">
+                </mat-form-field>
+              </div>
+
+              <div class="input_form">
+                <mat-form-field class="example-full-width">
+                  <p>Подтвердите пароль</p>
+                    <input matInput placeholder="Подтвердить пароль">
+                </mat-form-field>
+              </div>
+
+            </mat-card-content>
+          </form>
+
+            <div class="reg_btn">
+              <button mat-stroked-button color="accent" class="btn-block" (click)="submit(user)">Регистрация</button>
+              <a href="login.html">Логин</a>
+            </div>
+
+          </mat-card>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <div style="padding-top: 20px;" class="container">
+      <div class="contacts">
+        <h3 style="text-align: center">Контакты:</h3>
+
+        <div class="contact_infos">
+          <div class="contact_info">
+            <h3>Контактный телефон:</h3>
+            <p>+77058366547</p>
+          </div>
+          <div class="contact_info">
+            <h3>Email:</h3>
+            <p>zhakeevsultanbek@mail.ru</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="apps">
+        <div class="icon">
+          <a href=""><img src="../imgs/whatsapp.png" alt=""></a>
+        </div>
+        <div class="icon">
+          <a href=""><img src="../imgs/instagram.png" alt=""></a>
+        </div>
+        <div class="icon">
+          <a href="https://web.telegram.org/z/#1240565187"><img src="../imgs/telegram.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="js/register.js"></script>
+</body>
+</html>
